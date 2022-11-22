@@ -14,6 +14,9 @@ const app = express();
 // conect controller foled ex/ index.js --- require index.js 
 const indexRouter = require('./controller/index')
 
+//create a new router for movies
+const movieRouter = require('./controller/movies')
+
 // body parser config to accept our datatypes
 app.use(express.urlencoded({ extended: true }));
 
@@ -45,24 +48,9 @@ app.use(express.static('public'));
 
 
 
-////////////////////
-//  ROUTES
-///////////////////
-
-
-
-
-
-
-
-
-
-////////////////////
-//  ROUTES ENDS
-///////////////////
-
 // tell controller which route to use
 app.use('/', indexRouter)
+app.use('/movies', movieRouter)
 
 // tell server where to listen
 app.listen(port, ()=> {

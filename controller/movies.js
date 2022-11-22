@@ -6,6 +6,13 @@ const express = require('express')
 const router = express.Router()
 
 
+
+////////////////////
+//  ROUTES
+///////////////////
+
+
+
 //Movies Route
 router.get('/', (req, res) => {
     res.render('movies/index') 
