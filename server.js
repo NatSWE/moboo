@@ -1,8 +1,6 @@
-// setting up database
-// if (process.env.NODE_ENV !== 'production'){
-//     require('dotenv').load()
-// }
-
+/////////////////////////////
+//  SETUP and CONFIGURATION
+/////////////////////////////
 
 //require express in our app
 const express = require('express')
@@ -46,6 +44,22 @@ app.use(express.static('public'));
 // db.once('open', () => console.log('connected to Mongoose'))
 
 
+
+////////////////////
+//  ROUTES
+///////////////////
+
+
+
+
+
+
+
+
+
+////////////////////
+//  ROUTES ENDS
+///////////////////
 
 // tell controller which route to use
 app.use('/', indexRouter)
