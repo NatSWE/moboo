@@ -32,7 +32,8 @@ const port = 3000;
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('index', 'views/index')
-app.set('showBooks', 'views/showBooks')
+app.set('new', 'views/new')
+app.set('showMovies', 'views/showMovies')
 
 // serve tell server where are public file will locate
 app.use(express.static('public'));
