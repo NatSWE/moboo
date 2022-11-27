@@ -1,57 +1,61 @@
 /////////////////////////////
-//  SETUP and CONFIGURATION
+//  DEPENDENCIES
 /////////////////////////////
 
-//require express in our app
 const express = require('express')
-
-
-// generate a new express app and call it 'app'
 const app = express();
+const port = 3000;
 
+// Access Models//
+const db = require('./models')
 
+//ACCESS CONTROLLERS
+const moviesCtrl = require('./controller/movies')
+const indexCtrl = require('./controller/index')
 
-// conect controller foled ex/ index.js --- require index.js 
-const indexRouter = require('./controller/index')
+// creating to keep information that inputed example keep new author name when created
+const bodyParser = require('body-parser')
 
-//create a new router for movies
-const movieRouter = require('./controller/movies')
+// serve tell server where are public file will locate
+app.use(express.static('public'));
+// set views to connect to folder as ejs
+app.set('view engine', 'ejs')
+// body parser config to accept our datatypes
+app.use(express.urlencoded({ extended: true }));
+app.use((req, res, next) => {
+  console.log('running all routes');
+  next();
+})
+
+app.get('views', function (req, res) {
+    res.sendFile('views/index' , { root : __dirname});
+  });
+
+app.get('/view', function (req, res) {
+    res.sendFile('views/new' , { root : __dirname});
+  });
+
+  app.get('/showMovies', function (req, res) {
+    res.sendFile('views/showMovies' , { root : __dirname});
+  });
+
+// connecting database using monggose
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/3000',{ 
+useNewUrlParser: true})
+
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 
 // body parser config to accept our datatypes
 app.use(express.urlencoded({ extended: true }));
 
-// thinking if I need to command this code
-// app.use((req, res, next) => {
-//     next();
-// });
-
-//initialize variable to use for our environment port
-const port = 3000;
-
-// set views to connect to folder as ejs
-app.set('view engine', 'ejs')
-app.set('views', __dirname + '/views')
-app.set('index', 'views/index')
-app.set('new', 'views/new')
-app.set('showMovies', 'views/showMovies')
-
-// serve tell server where are public file will locate
-app.use(express.static('public'));
-
-
-//connecting database using monggose
-// const mongoose = require('mongoose')
-// mongoose.connect(process.env.DATABASE_URL)
-
-// const db = mongoose.connection
-// db.on('error', error => console.error(error))
-// db.once('open', () => console.log('connected to Mongoose'))
-
-
-
+// app.get('/movies/index', (req, res) => {
+//   res.send('')
+// })
 // tell controller which route to use
-app.use('/', indexRouter)
-app.use('/movies', movieRouter)
+app.use('/', indexCtrl)
+app.use('/movies', moviesCtrl)
+
 
 // tell server where to listen
 app.listen(port, ()=> {

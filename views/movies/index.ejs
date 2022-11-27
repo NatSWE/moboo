@@ -8,7 +8,21 @@
 </head>
 <body>
     <a href="/">MoBoo App</a>
-    Movies
-    
+  
+   <h2> Search All Movies</h2>
+
+   <form action="/movies" method="GET">
+      <label> Name </label>
+      <input type="text" name="name" value="<%= searchOptions.name %>">
+      <button type="submit">Search</button>
+
+   </form>
+   <br>
+   <% movies.forEach(movie => { %>
+    <div><%= movie.name %></div>
+   <% }) %>
+   
+
+   <br>
 </body>
 </html>

@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 router.get('show/:id', (req, res) => {
     db.Product.findById(req.params.id, (err, index) => {
-        res.render("showBooks", {
+        res.render("showMovies", {
             product: index,
             tabTitle: "index: " + index.name
         })

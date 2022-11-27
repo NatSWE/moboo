@@ -8,10 +8,11 @@
 </head>
 <body>
     <a href="/">MoBoo App</a>
-   <h2>new Movies</h2>
+   <h2>New Movies</h2>
 
    <form action="/movies" method="POST">
-
+      <label> Name </label>
+      <input type="text" name="name" value="<%= movie.name %>">
       <a href="/movies">Cancel</a>
       <button type="submit">Create</button>
 
