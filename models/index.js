@@ -15,4 +15,5 @@ mongoose.connection.on('disconnected', () => {
 mongoose.connection.on('error', (error) => {
     console.log('mongoose error ', error);
 });
+module.exports.Book = require("./book.js");
 module.exports.Movie = require("./movie.js");

@@ -11,8 +11,8 @@ const methodOverride = require('method-override');
 const db = require('./models')
 
 //ACCESS CONTROLLERS
+const booksCtrl = require('./controller/books')
 const moviesCtrl = require('./controller/movies')
-const indexCtrl = require('./controller/index')
 
 // creating to keep information that inputed example keep new author name when created
 const bodyParser = require('body-parser')
@@ -43,17 +43,38 @@ app.get('/view', function (req, res) {
     res.sendFile('views/showMovies' , { root : __dirname});
   });
 
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 
-// body parser config to accept our datatypes
-app.use(express.urlencoded({ extended: true }));
+
+
+
+//Index Homepage Route
+app.get('/', (req, res) => {
+  db.Book.find({}, (err, books) => {
+    db.Movie.find({}, (err, movies) => {
+      res.render('index', {
+        books: books,
+        movies:movies,
+        tabTitle:'moboo'
+      })
+    })
+  })
+})
+
+
+
+
 
 
 // tell controller which route to use
-app.use('/', indexCtrl)
+
+app.use('/books', booksCtrl)
 app.use('/movies', moviesCtrl)
 
 app.get('/movies', (req, res) =>{
+  res.send('')
+})
+
+app.get('/books', (req, res) =>{
   res.send('')
 })
 

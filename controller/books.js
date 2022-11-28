@@ -47,11 +47,11 @@ router.get('/:id', (req, res) => {
   })
   
   //Update
-  // router.get('/:id', (req, res) => {
-  //   db.book.findById(req.params.id, req.body, { new book 
-  //       res.redirect('/book/' + movie_id)
-  //   })
-  // })
+  router.get('/:id', (req, res) => {
+    db.book.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
+        res.redirect('/book/' + movie_id)
+    )
+  })
   
   // Delete movie route
   router.delete('/:id', (req, res) =>{

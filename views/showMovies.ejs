@@ -10,10 +10,11 @@
 <body>
     Hello 
     World
+    <a href="index.html">MoBoo HOMEPAGE</a>
     <% for (let movie of movies) { %>
         <div>
-        <h1> <%=movie.name %> </h1>
-        <img alt="<%= movie.name%>" src="<%=movie.img%>" id="movie">
+        <h1> <%=movie.title %> </h1>
+        <img alt="<%= movie.title%>" src="<%=movie.img%>" id="movie">
         </div>
     <%}%>
     <a href="/movies"></a>

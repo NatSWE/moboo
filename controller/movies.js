@@ -17,6 +17,8 @@ router.get('/:id', (req, res) => {
   })
 })
 
+
+
 // New Route for movies to display to dsplay form
 router.get('/new', (req, res) => {
   res.render('newBook.ejs', {
@@ -47,11 +49,11 @@ router.get('/:id', (req, res) => {
 })
 
 //Update
-// router.get('/:id', (req, res) => {
-//   db.Movie.findById(req.params.id, req.body, { new movie 
-//       res.redirect('/movie/' + movie_id)
-//   })
-// })
+router.get('/:id', (req, res) => {
+  db.book.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
+      res.redirect('/book/' + movie_id)
+  )
+})
 
 // Delete movie route
 router.delete('/:id', (req, res) =>{
