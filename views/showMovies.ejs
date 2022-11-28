@@ -9,5 +9,11 @@
 <body>
     Hello 
     World
+    <% for (let movie of movies) { %>
+        <div>
+        <h1> <%=movie.name %> </h1>
+        <img alt="<%= movie.name%>" src="<%=movie.img%>" id="poster-image">
+        </div>
+    <%}%>
 </body>
 </html>
