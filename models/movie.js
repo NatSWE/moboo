@@ -4,12 +4,15 @@ const Schema = mongoose.Schema
 
 // MOVIE SCHEMA
 const movieSchema = new mongoose.Schema({
-     name: { 
+     title: { 
        type: String, 
        required: true
      },
+     director: {type: String},
      description: {type: String},
-     img: {type: String},
+     release_date: {type: String},
+     img: {type: String, default: 'https://i.imgur.com/nnDEWge.png'},
+     likes: {type: Number, default: 0, min: 0}
 })
 
 
@@ -19,4 +22,3 @@ const Movie = mongoose.model('Movie', movieSchema)
 // // movie model will be in index.js
 module.exports = Movie
 
-// module.exports = mongoose.model('movie', movieSchema)

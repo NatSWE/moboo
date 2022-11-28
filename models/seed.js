@@ -2,19 +2,43 @@ const db = require('./')
 const newMovies =
     [
         {
-            name: 'Action',
-            description: 'fight.',
-            img: 'https://cdn3.bigcommerce.com/s-a6pgxdjc7w/products/1075/images/967/416130__50605.1467418920.1280.1280.jpg?c=2',
+            title: "Top Gun Maverick",
+            director: "Joseph Kosinski",
+            description: "Action Adventure",
+            release_date: "October 2, 2022",
+            img: 'https://i.imgur.com/ysV7e1E.jpg',
+            likes: 1
             
         }, {
-            name: 'fire',
-            description: 'fire action movies.',
-            img: 'http://bluelips.com/prod_images_large/bones1.jpg',
+            title: "Independence Day",
+            director: "JRoland Emmerich",
+            description: "Action Adventure",
+            release_date: "November 12, 1996",
+            img: 'https://i.imgur.com/vPr7gAZ.jpg',
+            likes: 1
         }, {
-            name: 'Magic',
-            description: 'superpower.',
-            img: 'http://www.clipartbest.com/cliparts/9cz/rMM/9czrMMBcE.jpeg',
+            title: "The Pursuit of Happyness",
+            director: "Gabriele Muccino",
+            description: "Drama",
+            release_date: "June 32, 2004",
+            img: 'https://i.imgur.com/auu74Dx.jpg',
+            likes: 1
             
+        }, {
+            title: "The Notebook",
+            director: "Nick Cassavetes",
+            description: "Romance Drama",
+            release_date: "January 23, 2022",
+            img: 'https://i.imgur.com/ysV7e1E.jpg',
+            likes: 1
+        },
+        {
+            title: "King Richard",
+            director: "Reinaldo Marcus Green",
+            description: "Sport Drama",
+            release_date: "December 12, 2021",
+            img: 'https://i.imgur.com/ysV7e1E.jpg',
+            likes: 1
         }
     ]
 db.Movie.deleteMany({}, (err, movies) => {
@@ -34,3 +58,59 @@ db.Movie.deleteMany({}, (err, movies) => {
     }
 })
 
+const db = require('./')
+const newBooks =
+    [
+        {
+            tile: "How to Talk to Anyone",
+            author: "Leil Lowndes",
+            description: "Relationships",
+            img: "https://i.imgur.com/lCKlFIK.jpg",
+            likes: 1
+            
+        }, {
+            tile: "Rich Dad Poor Dad",
+            author: "Robert T. Kiyosaki",
+            description: "Finance",
+            img: "https://i.imgur.com/WwMO4EN.jpg",
+            likes: 1
+
+        }, {
+            tile: "Think and Grow Rich",
+            author: "Napoleon Hill",
+            description: "Finance",
+            img: "https://i.imgur.com/43NZ1Vv.jpg",
+            likes: 1,  
+
+        }, {
+            tile: "How to Win Friends & Influence People",
+            author: "Dale Carnegie",
+            description: "Relationships",
+            img: "https://i.imgur.com/9RiwQDl.jpg",
+            likes: 1
+
+        }, {
+            tile: "Finding Me",
+            author: "Michelle Obama",
+            description: "Relationships",
+            img: "https://i.imgur.com/erJmd4s.jpg",
+            likes: 1
+        },
+    ]
+
+    db.Movie.deleteMany({}, (err, books) => {
+        if (err) {
+            console.log('Error occured in remove', err)
+        } else {
+            console.log('Removed all books')
+    
+            db.Movie.insertMany(newBooks, (err, books) => {
+                if (err) {
+                    console.log('Error occured in insertMany', err)
+                } else {
+                    console.log('Created', books.length, "books")
+                }
+                
+            })
+        }
+    })

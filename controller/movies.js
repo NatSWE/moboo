@@ -2,11 +2,6 @@
 // |D|E|P|E|N|D|E|N|C|I|E|S|
 // +-+-+-+-+-+-+-+-+-+-+-+-+
 
-// const express = require('express')
-// const router = express.Router()
-// const Movie = require('../models/movie') 
-// const db = require('../models/movie')
-
 const db = require("../models")
 const express = require('express')
 const router = express.Router()
@@ -15,60 +10,54 @@ const router = express.Router()
 //  ROUTES
 ///////////////////
 
-
-
-// Movies Route
-
-
-router.get('/', (req, res) => {
-  db.Movie.find({}, (err, movies) => {
-      res.render('showMovies', {
-          movies: movies,
-          tabTitle: 'Movies'
-      })
+// Show movie route
+router.get('/:id', (req, res) => {
+  db.Movie.findById(req.params.id, (err, movie) => {
+     res.send(movie)
   })
 })
 
-// router.get('/', (req, res) => {
-//   res.render('showMovies', { movies: movies })
-// })
-
-
 // New Route for movies to display to dsplay form
 router.get('/new', (req, res) => {
-    res.render('movies/new', {
-      movies: movies
-    })
+  res.render('newBook.ejs', {
+      tabTitle: "New Movie Released"
+  })
 })
 
-//create new movie route
-
-
-
-
-// route to create and add new movies posting to create a new movie
+// Create movie
 router.post('/', (req, res) => {
-       res.send(req.body.name)
-       res.render('movies/new', {
-        movie: movie
-       })
+  if (req.body.visited) {
+    req.body.visited = true
+  } else {
+    req.body.visited = true
+  }
+  db.Movie.create(req.body, (err, movie) => {
+    res.send(movie)
+  })
 })
 
+// Edit movie Route
+router.get('/:id', (req, res) => {
+  db.Movie.findById(req.params.id, (err, movie) => {
+    res.render("editMovie", {
+       movie: movie,
+       tabTitle:"Edit"
+    })
+  })
+})
 
+//Update
+// router.get('/:id', (req, res) => {
+//   db.Movie.findById(req.params.id, req.body, { new movie 
+//       res.redirect('/movie/' + movie_id)
+//   })
+// })
 
-
-// router.post('/', (req, res) => {
-//     // create new movie with form data (`req.body`)
-//     const movie = new movie ({
-//         name: req.body.name
-//     })
-
-//     db.movie(req.body, (err, movie) => {
-//       res.redirect('/movie/' + movie._id)
-//     })
-//   });
-
-
-
+// Delete movie route
+router.delete('/:id', (req, res) =>{
+  db.Movie.findByIdAndRemove(req.params.id, (err, movie) => {
+     res.redirect('/')
+  })
+})
 
 module.exports = router

@@ -43,13 +43,6 @@ app.get('/view', function (req, res) {
     res.sendFile('views/showMovies' , { root : __dirname});
   });
 
-// connecting database using monggose
-// const mongoose = require('mongoose')
-// mongoose.connect('mongodb://localhost/3000',{ 
-// useNewUrlParser: true})
-
-
-
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 
 // body parser config to accept our datatypes
