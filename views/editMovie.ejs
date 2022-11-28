@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoBoo Library</title>
+    <a href="index.html">MoBoo HOMEPAGE</a>
+</head>
+<body>
+    <a href="/movies">MOVIE</a>
+    <h1>Edit movie</h1>
+    <div class="flex-container">
+        <form action="/entry/<%= entry._id %>?_method=PUT" method="post">
+            <label for="author">Author:</label>
+            <input type="text" name="author" value="<%= entry.author %>" />
+            <label for="content">Content:</label>
+            <textarea name="content" ><%= entry.content %></textarea>
+            <label for="starDate">Star Date:</label>
+            <input type="number" name="starDate" value="<%= entry.starDate %>" />
+            <button type="submit">Edit Entry</button>
+        </form>
+    </div>
+</body>
+</html>

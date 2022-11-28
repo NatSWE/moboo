@@ -58,39 +58,39 @@ db.Movie.deleteMany({}, (err, movies) => {
     }
 })
 
-const db = require('./')
+// const db = require('./')
 const newBooks =
     [
         {
-            tile: "How to Talk to Anyone",
+            title: "How to Talk to Anyone",
             author: "Leil Lowndes",
             description: "Relationships",
             img: "https://i.imgur.com/lCKlFIK.jpg",
             likes: 1
             
         }, {
-            tile: "Rich Dad Poor Dad",
+            title: "Rich Dad Poor Dad",
             author: "Robert T. Kiyosaki",
             description: "Finance",
             img: "https://i.imgur.com/WwMO4EN.jpg",
             likes: 1
 
         }, {
-            tile: "Think and Grow Rich",
+            title: "Think and Grow Rich",
             author: "Napoleon Hill",
             description: "Finance",
             img: "https://i.imgur.com/43NZ1Vv.jpg",
             likes: 1,  
 
         }, {
-            tile: "How to Win Friends & Influence People",
+            title: "How to Win Friends & Influence People",
             author: "Dale Carnegie",
             description: "Relationships",
             img: "https://i.imgur.com/9RiwQDl.jpg",
             likes: 1
 
         }, {
-            tile: "Finding Me",
+            title: "Finding Me",
             author: "Michelle Obama",
             description: "Relationships",
             img: "https://i.imgur.com/erJmd4s.jpg",
@@ -98,13 +98,13 @@ const newBooks =
         },
     ]
 
-    db.Movie.deleteMany({}, (err, books) => {
+    db.Book.deleteMany({}, (err, books) => {
         if (err) {
             console.log('Error occured in remove', err)
         } else {
             console.log('Removed all books')
     
-            db.Movie.insertMany(newBooks, (err, books) => {
+            db.Book.insertMany(newBooks, (err, books) => {
                 if (err) {
                     console.log('Error occured in insertMany', err)
                 } else {

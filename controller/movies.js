@@ -10,10 +10,20 @@ const router = express.Router()
 //  ROUTES
 ///////////////////
 
+// Index BOOK route
+router.get('/', (req, res) => {
+  db.Movie.findById(req.params.id, (err, movies) => {
+     res.send(movies)
+  })
+})
+
 // Show movie route
-router.get('/:id', (req, res) => {
-  db.Movie.findById(req.params.id, (err, movie) => {
-     res.send(movie)
+router.get('/', (req, res) => {
+  db.Movie.find({}, (err, movies) => {
+     res.render('showMovies', {
+        movies: movies,
+        tabTitle: 'Movies'
+     })
   })
 })
 
@@ -21,7 +31,7 @@ router.get('/:id', (req, res) => {
 
 // New Route for movies to display to dsplay form
 router.get('/new', (req, res) => {
-  res.render('newBook.ejs', {
+  res.render('newMovies.ejs', {
       tabTitle: "New Movie Released"
   })
 })
@@ -33,16 +43,16 @@ router.post('/', (req, res) => {
   } else {
     req.body.visited = true
   }
-  db.Movie.create(req.body, (err, movie) => {
-    res.send(movie)
+  db.Movie.create(req.body, (err, movies) => {
+    res.send(movies)
   })
 })
 
 // Edit movie Route
 router.get('/:id', (req, res) => {
-  db.Movie.findById(req.params.id, (err, movie) => {
+  db.Movie.findById(req.params.id, (err, movies) => {
     res.render("editMovie", {
-       movie: movie,
+       movies: movies,
        tabTitle:"Edit"
     })
   })
@@ -57,7 +67,7 @@ router.get('/:id', (req, res) => {
 
 // Delete movie route
 router.delete('/:id', (req, res) =>{
-  db.Movie.findByIdAndRemove(req.params.id, (err, movie) => {
+  db.Movie.findByIdAndRemove(req.params.id, (err, movies) => {
      res.redirect('/')
   })
 })

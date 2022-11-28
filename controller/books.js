@@ -10,9 +10,16 @@ const router = express.Router()
 //  ROUTES
 ///////////////////
 
+// Index BOOK route
+router.get('/', (req, res) => {
+    db.Book.findById(req.params.id, (err, book) => {
+       res.send(book)
+    })
+  })
+
 // Show BOOK route
 router.get('/:id', (req, res) => {
-    db.Movie.findById(req.params.id, (err, book) => {
+    db.Book.findById(req.params.id, (err, book) => {
        res.send(book)
     })
   })

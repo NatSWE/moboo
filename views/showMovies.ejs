@@ -8,15 +8,15 @@
     <link rel="seed" href="./seed">
 </head>
 <body>
-    Hello 
-    World
+    <% for (let movie of movies) {%>
+    <div>
     <a href="index.html">MoBoo HOMEPAGE</a>
-    <% for (let movie of movies) { %>
-        <div>
-        <h1> <%=movie.title %> </h1>
-        <img alt="<%= movie.title%>" src="<%=movie.img%>" id="movie">
+    
+        <h1> <%=movies.title %> </h1>
+        <img alt="<%= movies.title%>" src="<%=movie.img%>" id="movies">
         </div>
-    <%}%>
     <a href="/movies"></a>
+    </div>
+    <% } %>
 </body>
 </html>
