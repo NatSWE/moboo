@@ -15,7 +15,7 @@ const booksCtrl = require('./controller/books')
 const moviesCtrl = require('./controller/movies')
 
 // creating to keep information that inputed example keep new author name when created
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
 
 // serve tell server where are public file will locate
 app.use(express.static('public'));
@@ -31,17 +31,17 @@ app.use((req, res, next) => {
 
 
 
-app.get('views', function (req, res) {
-    res.sendFile('views/index' , { root : __dirname});
-  });
+// app.get('views', function (req, res) {
+//     res.sendFile('views/index' , { root : __dirname});
+//   });
 
-app.get('/view', function (req, res) {
-    res.sendFile('views/new' , { root : __dirname});
-  });
+// app.get('/view', function (req, res) {
+//     res.sendFile('views/new' , { root : __dirname});
+//   });
 
-  app.get('/showMovies', function (req, res) {
-    res.sendFile('views/showMovies' , { root : __dirname});
-  });
+//   app.get('/showMovies', function (req, res) {
+//     res.sendFile('views/showMovies' , { root : __dirname});
+//   });
 
 
 
@@ -70,13 +70,13 @@ app.get('/', (req, res) => {
 app.use('/books', booksCtrl)
 app.use('/movies', moviesCtrl)
 
-app.get('/movies', (req, res) =>{
-  res.send('')
-})
+// app.get('/movies', (req, res) =>{
+//   res.send('')
+// })
 
-app.get('/books', (req, res) =>{
-  res.send('')
-})
+// app.get('/books', (req, res) =>{
+//   res.send('')
+// })
 
 
 

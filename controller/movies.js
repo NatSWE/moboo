@@ -18,8 +18,8 @@ router.get('/', (req, res) => {
 })
 
 // Show movie route
-router.get('/', (req, res) => {
-  db.Movie.find({}, (err, movies) => {
+router.get('/show/:id', (req, res) => {
+  db.Movie.findById(req.params.id, (err, movies) => {
      res.render('showMovies', {
         movies: movies,
         tabTitle: 'Movies'
@@ -47,9 +47,20 @@ router.post('/', (req, res) => {
     res.send(movies)
   })
 })
+// Delete movie route
+router.delete('/:id', (req, res) =>{
+  db.Movie.findByIdAndRemove(req.params.id, (err, movies) => {
+     res.redirect('/')
+  })
+})
 
 // Edit movie Route
-router.get('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
+  db.Movie.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, movies) => {
+      res.redirect('/movies/show/' + movies._id)
+  })
+})
+router.get('/:id/edit', (req, res) => {
   db.Movie.findById(req.params.id, (err, movies) => {
     res.render("editMovie", {
        movies: movies,
@@ -58,18 +69,13 @@ router.get('/:id', (req, res) => {
   })
 })
 
-//Update
-router.get('/:id', (req, res) => {
-  db.book.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
-      res.redirect('/book/' + movie_id)
-  )
-})
+// //Update
+// router.get('/:id', (req, res) => {
+//   db.Movie.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
+//       res.redirect('/movies/' + movies._id)
+//   )
+// })
 
-// Delete movie route
-router.delete('/:id', (req, res) =>{
-  db.Movie.findByIdAndRemove(req.params.id, (err, movies) => {
-     res.redirect('/')
-  })
-})
+
 
 module.exports = router

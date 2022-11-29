@@ -5,21 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoBoo Library</title>
-    <a href="index.html">MoBoo HOMEPAGE</a>
+    <a href="/">MoBoo HOMEPAGE</a>
 </head>
 <body>
-    <a href="/movies">MOVIE</a>
+    
     <h1>Edit movie</h1>
     <div class="flex-container">
-        <form action="/entry/<%= entry._id %>?_method=PUT" method="post">
-            <label for="author">Author:</label>
-            <input type="text" name="author" value="<%= entry.author %>" />
-            <label for="content">Content:</label>
-            <textarea name="content" ><%= entry.content %></textarea>
-            <label for="starDate">Star Date:</label>
-            <input type="number" name="starDate" value="<%= entry.starDate %>" />
-            <button type="submit">Edit Entry</button>
-        </form>
+        <form action ="/movies/<%= movies._id%>?_method=PUT" method="post" id="createForm">
+            <input type="text" name="title" placeholder="Title" required value="<%= movies.title %>" />
+            <input type="text" name="director" placeholder="Director" value="<%= movies.director %>" />
+            <input type="text" name="description" placeholder="Director" value="<%=movies.description%>" />
+            <input type="text" name="release_date" placeholder="Release Date" value="<%=movies.release_date%>" />
+            <input type="text" name="img" value="<%= movies.img%>"/>
+            <input type="number" name="likes" placeholder="1" value="<%=movies.likes %>"/>
+            <button type="submit">Edit Movie</button>
+          </form>  
     </div>
 </body>
 </html>

@@ -9,35 +9,35 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <h1>MoBoo Library <a href="index.html"><img src="/public/images/moboologo.png"/></a></h1>
-    <div class="container"> //dont know which proper div class to use//
+    <h1>MoBoo Library<img src="/public/images/moboologo.png"/></h1>
+    <div class="container"> 
         <div>
             <a class="" href="/movies">
                 Movies
-              
+            </a>
             <% for (let movie of movies) { %>
                 <div>
-                <h1> <%=movies.title %> </h1>
+                <h1> <%=movie.title %> </h1>
                 <a href="/movies/show/<%= movie._id %>">
                 <img alt="<%= movie.description%>" src="<%=movie.img%>" 
-                id="movie">
+                id="movies" height="500"/>
                 </a>
                 
                 </div>
             <%}%>
-            </a>
+            
         </div>  
         <div> 
             <a class="" href="/books">
               Books
-            
+            </a>
             <% for (let book of books) { %>
                 <div>
                 <h1> <%=book.title %> </h1>
-                <img alt="<%= book.title%>" src="<%=book.img%>" id="book">
+                <img alt="<%= book.title%>" src="<%=book.img%>" id="book" height="500"/>
                 </div>
-                <%}%>
-            </a>
+             <%}%>
+            
         </div>
 
     
