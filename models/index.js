@@ -1,6 +1,9 @@
+
 const mongoose = require("mongoose");
+
+const connectionString =process.env.MONGODBURI
 // connect to MongoDB via mongoose
-const connectionString = "mongodb://localhost/moboo"
+
 mongoose.connect(
     connectionString,
     { useNewUrlParser: true, useUnifiedTopology: true }

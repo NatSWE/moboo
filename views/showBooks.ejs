@@ -22,6 +22,11 @@
     <a href="/books"></a>
    
     <a href="/books/<%= books._id %>/edit">EDIT</a>
+    <br>
+    <br>
+    <form id="btn" action="/books/<%= books._id%>?_method=delete" method="post">
+        <button type="submit" id="delete">Delete Movie</button>
+    </form>
     </p>
 </body>
 </html>

@@ -2,10 +2,19 @@
 //  DEPENDENCIES
 /////////////////////////////
 
+
+
 const express = require('express')
 const app = express();
 const port = 3000;
 const methodOverride = require('method-override');
+
+require('dotenv').config()
+
+const PORT = process.env.PORT
+const mongodbURI = process.env.MONGODBURI
+
+
 
 // Access Models//
 const db = require('./models')
@@ -13,9 +22,6 @@ const db = require('./models')
 //ACCESS CONTROLLERS
 const booksCtrl = require('./controller/books')
 const moviesCtrl = require('./controller/movies')
-
-// creating to keep information that inputed example keep new author name when created
-// const bodyParser = require('body-parser')
 
 // serve tell server where are public file will locate
 app.use(express.static('public'));
