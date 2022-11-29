@@ -69,6 +69,7 @@ router.get('/:id/edit', (req, res) => {
   })
 })
 
+
 // //Update
 // router.get('/:id', (req, res) => {
 //   db.Movie.findByIdAndUpdate(req.params.id, req.body, { new: true}, 

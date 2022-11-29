@@ -5,21 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoBoo Library</title>
-    <a href="index.html">MoBoo HOMEPAGE</a>
+    <a href="/">MoBoo HOMEPAGE</a>
 </head>
 <body>
-    <a href="/books">Book</a>
+    
     <h1>Edit Book</h1>
     <div class="flex-container">
-        <form action="/entry/<%= entry._id %>?_method=PUT" method="post">
-            <label for="author">Author:</label>
-            <input type="text" name="author" value="<%= entry.author %>" />
-            <label for="content">Content:</label>
-            <textarea name="content" ><%= entry.content %></textarea>
-            <label for="starDate">Star Date:</label>
-            <input type="number" name="starDate" value="<%= entry.starDate %>" />
-            <button type="submit">Edit Entry</button>
-        </form>
+        <form action ="/bboks/<%= books._id%>?_method=PUT" method="post" id="createForm">
+            <input type="text" name="title" placeholder="Title" required value="<%= books.title %>" />
+            <input type="text" name="director" placeholder="author" value="<%= books.director %>" />
+            <input type="text" name="description" placeholder="description" value="<%=books.description%>" />
+            <input type="text" name="img" value="<%= books.img%>"/>
+            <button type="submit">Edit Book</button>
+          </form>   
     </div>
 </body>
+
 </html>

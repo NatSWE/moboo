@@ -8,16 +8,20 @@
     <link rel="seed" href="./seed">
 </head>
 <body>
-  
+    
     <div>
+    <p>
     <a href="/">MoBoo HOMEPAGE</a>
     
-        <h1> <%=book.title %> </h1>
-        <img alt="<%= book.title%>" src="<%=book.img%>" id="books">
+        <h1> <%=books.title %> </h1>
+        <img alt="<%= books.title%>" src="<%=books.img%>" id="books">
+        <h2><%=books.author%></h2>
+        <h3><%=books.description%></h3> 
+        
         </div>
     <a href="/books"></a>
-    </div>
-    <a href="/books/<%= movie._id %>/edit">EDIT</a>
-  
+   
+    <a href="/books/<%= books._id %>/edit">EDIT</a>
+    </p>
 </body>
 </html>

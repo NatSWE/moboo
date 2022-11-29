@@ -9,8 +9,7 @@ const bookSchema = new mongoose.Schema({
     },
     author: {type: String},
     description: {type: String},
-    img: {type: String, default: 'https://i.imgur.com/OX8kWHM.png'},
-    likes: {type: Number, default: 0, min:0}
+    img: {type: String, default: 'https://i.imgur.com/OX8kWHM.png'}
 })
 
 const Book = mongoose.model('Book', bookSchema)

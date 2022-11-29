@@ -34,15 +34,13 @@
             <% for (let book of books) { %>
                 <div>
                 <h1> <%=book.title %> </h1>
-                <img alt="<%= book.title%>" src="<%=book.img%>" id="book" height="500"/>
+                <a href="/books/show/<%= book._id %>">
+                <img alt="<%= book.author%>" src="<%=book.img%>" 
+                id="book" height="500"/>
                 </div>
              <%}%>
             
         </div>
-
-    
-    
-
     </div>
 </body>
 </html>

@@ -11,8 +11,7 @@ const movieSchema = new mongoose.Schema({
      director: {type: String},
      description: {type: String},
      release_date: {type: String},
-     img: {type: String, default: 'https://i.imgur.com/nnDEWge.png'},
-     likes: {type: Number, default: 0, min: 0}
+     img: {type: String, default: 'https://i.imgur.com/nnDEWge.png'}   
 })
 
 

@@ -31,17 +31,17 @@ app.use((req, res, next) => {
 
 
 
-// app.get('views', function (req, res) {
-//     res.sendFile('views/index' , { root : __dirname});
-//   });
+app.get('views', function (req, res) {
+    res.sendFile('views/index' , { root : __dirname});
+  });
 
-// app.get('/view', function (req, res) {
-//     res.sendFile('views/new' , { root : __dirname});
-//   });
+app.get('/view', function (req, res) {
+    res.sendFile('views/new' , { root : __dirname});
+  });
 
-//   app.get('/showMovies', function (req, res) {
-//     res.sendFile('views/showMovies' , { root : __dirname});
-//   });
+  app.get('/showMovies', function (req, res) {
+    res.sendFile('views/showMovies' , { root : __dirname});
+  });
 
 
 
