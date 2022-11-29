@@ -9,8 +9,7 @@
 </head>
 <body>
     
-    <div>
-    <p>
+  <div>
     <a href="/">MoBoo HOMEPAGE</a>
     
         <h1> <%=movies.title %> </h1>
@@ -22,7 +21,12 @@
         </div>
     <a href="/movies"></a>
    
-    <a href="/movies/<%= movies._id %>/edit">EDIT</a>
-    </p>
+    <a href="/movies/<%= movies._id %>/edit">Edit Movie</a>
+    <br>
+    <br>
+    <form id="btn" action="/movies/<%= movies._id%>?_method=delete" method="post">
+        <button type="submit" id="delete">Delete Movie</button>
+    </form>
+  </div>
 </body>
 </html>

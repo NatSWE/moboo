@@ -11,9 +11,9 @@
     
     <h1>Edit Book</h1>
     <div class="flex-container">
-        <form action ="/bboks/<%= books._id%>?_method=PUT" method="post" id="createForm">
+        <form action ="/books/<%= books._id%>?_method=PUT" method="post" id="createForm">
             <input type="text" name="title" placeholder="Title" required value="<%= books.title %>" />
-            <input type="text" name="director" placeholder="author" value="<%= books.director %>" />
+            <input type="text" name="author" placeholder="author" value="<%= books.author %>" />
             <input type="text" name="description" placeholder="description" value="<%=books.description%>" />
             <input type="text" name="img" value="<%= books.img%>"/>
             <button type="submit">Edit Book</button>

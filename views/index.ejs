@@ -9,35 +9,31 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <h1>MoBoo Library<img src="/public/images/moboologo.png"/></h1>
-    <div class="container"> 
-        <div>
-            <a class="" href="/movies">
-                Movies
-            </a>
+    <h1>MoBoo Library</h1>
+    <div> 
+        <div class="column">
+           </a>
+            <a class="" href="/movies" Movies>
             <% for (let movie of movies) { %>
-                <div>
-                <h1> <%=movie.title %> </h1>
-                <a href="/movies/show/<%= movie._id %>">
-                <img alt="<%= movie.description%>" src="<%=movie.img%>" 
-                id="movies" height="500"/>
-                </a>
                 
-                </div>
+                <h2> <%=movie.title %> </h2>
+                <a href="/movies/show/<%= movie._id %>">
+                <img alt="<%= movies.director%>" src="<%=movie.img%>" 
+                id="movie" height="300"/>
             <%}%>
-            
+                
         </div>  
-        <div> 
-            <a class="" href="/books">
-              Books
-            </a>
+        <div class="column2"> 
+           </a>
+            <a class="" href="/books" Books>
             <% for (let book of books) { %>
-                <div>
-                <h1> <%=book.title %> </h1>
+                
+                <h2> <%=book.title %> </h2>
                 <a href="/books/show/<%= book._id %>">
                 <img alt="<%= book.author%>" src="<%=book.img%>" 
-                id="book" height="500"/>
-                </div>
+                id="book" height="300"/>
+                
+               
              <%}%>
             
         </div>

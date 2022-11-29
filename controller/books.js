@@ -63,7 +63,7 @@ router.get('/show/:id', (req, res) => {
   })
   router.get('/:id/edit', (req, res) => {
     db.Book.findById(req.params.id, (err, books) => {
-      res.render("editMovie", {
+      res.render("editBook", {
          books: books,
          tabTitle:"Edit"
       })

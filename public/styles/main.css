@@ -1,16 +1,42 @@
 /* ================ */
 /*     GENERAL      */
 /* ================ */
-body {
-    background-color: turquoise;
-    background-repeat: repeat;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', helvetica;
+
+  body {
+    background-image: url('https://i.imgur.com/B3eg57W.png');
+    background-repeat:no-repeat
   }
-  a {
-    text-decoration: none;
+
+  h1 {
+    font-family: Verdana,;
+    text-align: center;
   }
+
+
+ .column {
+    float: left;
+    width: 53.33%;
+    padding: 15px;
+    align-items: center;
+    height: 53.33%;
+  }
+
+  /* .column2 {
+    float: right;
+    width: 53.33%;
+    padding: 15px;
+    align-items: center;
+    height: 53.33%;
+  } */
+
+
+ /* img {
+    margin: 0px 0px 0px 0px;
+    border-radius: 20px;
+    align-items: center;
+    width: auto;
+    
+  } */
 
 /* ================ */
 /*      HEADER      */
