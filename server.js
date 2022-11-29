@@ -6,13 +6,12 @@
 
 const express = require('express')
 const app = express();
-const port = 3000;
+
 const methodOverride = require('method-override');
 
 require('dotenv').config()
 
-const PORT = process.env.PORT
-const mongodbURI = process.env.MONGODBURI
+const port = process.env.PORT;
 
 
 
