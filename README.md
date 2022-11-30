@@ -33,5 +33,15 @@ Two Models (Movies & Books) both models have 7 RESTful routes and full CRUD appl
  
  
  <img width="266" alt="Screen Shot 2022-11-30 at 9 37 54 AM" src="https://user-images.githubusercontent.com/117474127/204841586-0ad79b98-e265-4af5-a747-de19f04b6601.png">
+ 
 
+# User Stories
+
+As a user I want to documents all the books I have read from my book club.
+As a user I want a place to documents all my favorite movies for refrence.
+
+
+# Try MoBoo 
+
+https://moboo-production-5d79.up.railway.app/
  
