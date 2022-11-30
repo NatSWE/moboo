@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoBoo Library</title>
-    <a href="index.html">MoBoo HOMEPAGE</a>
+    <a href="/">MoBoo HOMEPAGE</a>
 </head>
 <body>
-    <a href="/movies">MOVIE</a>
-    <h1>New Book</h1>
-    <div class="flex-container">
-        <form action="/entry/" method="post">
-            <input type="text" name="title" placeholder="author" />
-            <textarea name="content" placeholder="content"></textarea>
-            <input type="number" name="starDate" value="12022" />
-            <button type="submit">New Book</button>
+    
+    <h1>Thank you for adding new movie to the Library</h1>
+    <div class="createNewMovies">
+        <form action ="/movies" method="post" id="createForm">
+            <input type="text" name="title" placeholder="Title" required />
+            <input type="text" name="director" placeholder="Director" />
+            <input type="text" name="description" placeholder="Description" />
+            <input type="text" name="release_date" placeholder="Release Date" />
+            <input type="text" name="img" value="" placeholder="Add Image"/>
+            <button type="submit">Add New Movie</button>
         </form>
     </div>
 </body>

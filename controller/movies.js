@@ -31,22 +31,18 @@ router.get('/show/:id', (req, res) => {
 
 // New Route for movies to display to dsplay form
 router.get('/new', (req, res) => {
-  res.render('newMovies.ejs', {
+  res.render('newMovie.ejs', {
       tabTitle: "New Movie Released"
   })
 })
 
 // Create movie
 router.post('/', (req, res) => {
-  if (req.body.visited) {
-    req.body.visited = true
-  } else {
-    req.body.visited = true
-  }
   db.Movie.create(req.body, (err, movies) => {
-    res.send(movies)
+    res.redirect('/')
   })
 })
+
 // Delete movie route
 router.delete('/:id', (req, res) =>{
   db.Movie.findByIdAndRemove(req.params.id, (err, movies) => {

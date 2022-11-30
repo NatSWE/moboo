@@ -1,3 +1,4 @@
+require("dotenv").config()
 const db = require('./')
 const newMovies =
     [
@@ -29,7 +30,7 @@ const newMovies =
             director: "Nick Cassavetes",
             description: "Romance Drama",
             release_date: "January 23, 2022",
-            img: 'https://i.imgur.com/ysV7e1E.jpg',
+            img: 'https://i.imgur.com/5KhbG7s.jpg',
             
         },
         {
@@ -37,7 +38,7 @@ const newMovies =
             director: "Reinaldo Marcus Green",
             description: "Sport Drama",
             release_date: "December 12, 2021",
-            img: 'https://i.imgur.com/ysV7e1E.jpg',
+            img: 'https://i.imgur.com/jsrIdWY.jpg',
             
         }
     ]

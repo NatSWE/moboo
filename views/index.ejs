@@ -9,49 +9,38 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     
-    <div> 
+   
+    <div class="index-div"> 
+        
+        
+        <div class="container">  
         <div class="column">
-           </a>
-            <a class="" href="/movies" Movies>
+            <a class="newlink" href="/movies/new">Add New Movie</a>
             <% for (let movie of movies) { %>
-                
+               <div class="card">
                 <h2> <%=movie.title %> </h2>
                 <a href="/movies/show/<%= movie._id %>">
                 <img alt="<%= movies.director%>" src="<%=movie.img%>" 
-                id="movie" height="300"/>
+                id="movie" />
+            </div> 
             <%}%>
-                
+                 
         </div>  
         <div class="column2"> 
-           </a>
-            <a class="" href="/books" Books>
+            <a class="newlink2"  href="/books/new">Add New Book</a> 
             <% for (let book of books) { %>
-                
+            <div class="card"> 
                 <h2> <%=book.title %> </h2>
                 <a href="/books/show/<%= book._id %>">
                 <img alt="<%= book.author%>" src="<%=book.img%>" 
-                id="book" height="300"/>
-                
+                id="book" />
+            </div> 
                
              <%}%>
             
         </div>
+    </div> 
     </div>
 </body>
 </html>

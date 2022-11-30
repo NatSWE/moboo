@@ -29,24 +29,19 @@ router.get('/show/:id', (req, res) => {
   
   // New Route for books to display to dsplay form
   router.get('/new', (req, res) => {
-    res.render('newBooks.ejs', {
+    res.render('newBook.ejs', {
         tabTitle: "New Book Released"
     })
   })
   
-  // Create movie
+  // Create book
   router.post('/', (req, res) => {
-    if (req.body.visited) {
-      req.body.visited = true
-    } else {
-      req.body.visited = true
-    }
     db.Book.create(req.body, (err, books) => {
-      res.send(books)
+      res.redirect('/')
     })
   })
 
-  // Delete movie route
+  // Delete book route
   router.delete('/:id', (req, res) =>{
     db.Book.findByIdAndRemove(req.params.id, (err, books) => {
        res.redirect('/')
@@ -55,7 +50,7 @@ router.get('/show/:id', (req, res) => {
   
 
  
-  // Edit movie Route
+  // Edit book Route
   router.put('/:id', (req, res) => {
     db.Book.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, books) => {
         res.redirect('/books/show/' + books._id)
@@ -72,11 +67,6 @@ router.get('/show/:id', (req, res) => {
 
 
   
-//   //Update
-//   router.get('/:id', (req, res) => {
-//     db.book.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
-//         res.redirect('/book/' + movie_id)
-//     )
-//   })
+
   
   module.exports = router
